@@ -11,9 +11,7 @@ stages:
       - job: "Build"
         displayName: "Build job"
         pool:
-          vmImage: "ubuntu-20.04"
-          demands:
-            - npm
+          name: rmajidpool
 
         variables:
           wwwrootDir: "Tailspin.SpaceGame.Web/wwwroot"
@@ -71,7 +69,7 @@ stages:
     jobs:
       - deployment: Deploy
         pool:
-          vmImage: "ubuntu-20.04"
+          name: rmajidpool
         environment: dev
         strategy:
           runOnce:
